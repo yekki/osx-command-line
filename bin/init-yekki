@@ -1,0 +1,6 @@
+#!/bin/bash
+
+if [ -f ~/.zshrc ]; then
+    echo 'ZSH_CUSTOM=/Users/gniu/.yekki/zsh' >> ~/.zshrc
+fi
+
