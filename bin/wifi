@@ -1,0 +1,62 @@
+#!/bin/bash
+
+function usage {
+cat << EOF
+usage: $(basename $0) [-c/s/j/i/l/p/o/h]
+
+-c: Show Current SSID
+-s: Scan Available Access Points
+-j: Join a Wi-Fi Network
+  arg1:SSID
+  arg2:Password
+-i: Show Local IP Address
+-l: Show Wi-Fi Connection History
+-p: Show Wi-Fi Network Passwords
+  arg1:SSID
+-o: Turn on/off Wi-Fi Adapter
+  arg1:off/on
+-h: help
+EOF
+  exit 0
+}
+
+source ~/.yekkirc
+
+if [ $# -eq 0 ]; then usage;fi
+
+if [ ! -L /usr/local/bin/airport ]; then
+  sudo ln -s /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport /usr/local/bin/airport
+fi
+
+while getopts cjihpos arg
+do
+  shift $(($OPTIND - 1))
+  case $arg in
+    j)
+      if [ "$WIFI_SSID"  == "" ]; then WIFI_SSID=$1;fi
+      if [ "$WIFI_PASSWORD" == "" ]; then WIFI_PASSWORD=$2;fi
+      networksetup -setairportnetwork en0 $WIFI_SSID $WIFI_PASSWORD
+      ;;
+    s)
+      airport -s
+      ;;
+    c)
+      airport -I | awk '/ SSID/ {print substr($0, index($0, $2))}'
+      ;;
+    l)
+      defaults read /Library/Preferences/SystemConfiguration/com.apple.airport.preferences | grep LastConnected -A 7
+      ;;
+    i)
+      ipconfig getifaddr en0
+      ;;
+    p)
+      security find-generic-password -D "AirPort network password" -a $1 -gw
+      ;;
+    o)
+      networksetup -setairportpower en0 $1
+      ;;
+    *)
+      usage
+      ;;
+  esac
+done

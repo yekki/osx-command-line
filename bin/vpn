@@ -1,0 +1,47 @@
+#!/bin/bash
+
+
+#!/bin/bash
+
+function usage {
+cat << EOF
+usage: $(basename $0) [-c/s/j/i/l/p/o/h]
+
+-c: Connect VPN
+  arg1:vpn username
+  arg2:vpn password
+  arg3:vpn domain
+-d: Disconnect from VPN
+-s: Show VPN status
+-h: help
+EOF
+  exit 0
+}
+
+source ~/.yekkirc
+
+if [ $# -eq 0 ]; then usage;fi
+
+while getopts cdsh arg
+do
+  shift $(($OPTIND - 1))
+  case $arg in
+    c)
+      if [ "$VPN_USERNAME"  == "" ]; then VPN_USERNAME=$1;fi
+      if [ "$VPN_PASSWORD" == "" ]; then VPN_PASSWORD=$2;fi
+      if [ "$VPN_DOMAIN" == "" ]; then VPN_DOMAIN=$3;fi
+      printf "$VPN_USRNAME\n$VPN_PASSWORD\ny" | $VPN_CMD -s connect $VPN_DOMAIN
+      ;;
+    d)
+      $VPN_CMD disconnect
+      ;;
+    s)
+      $VPN_CMD status
+      ;;
+    *)
+      usage
+      ;;
+  esac
+done
+
+

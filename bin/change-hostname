@@ -1,0 +1,20 @@
+#!/bin/bash
+
+function usage {
+cat <<EOF
+Usage: $(basename $0) hostname
+EOF
+exit 1
+}
+
+if [ "$1" == "" ]; then usage;fi
+
+if [ $EUID -ne 0 ]; then
+    echo "This script requires superuser access, use: 'sudo $0 $@'"
+    exit 1
+fi
+
+sudo scutil --set ComputerName $1 && \
+sudo scutil --set HostName $1 && \
+sudo scutil --set LocalHostName $1 && \
+sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string $1
