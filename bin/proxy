@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ~/.yekkirc
+source ~/Dropbox/.yekkirc
 
 export ALL_PROXY=$VPN_PROXY
 export HTTP_PROXY=$ALL_PROXY

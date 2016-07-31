@@ -20,7 +20,7 @@ EOF
   exit 0
 }
 
-source ~/.yekkirc
+source ~/Dropbox/.yekkirc
 
 if [ $# -eq 0 ]; then usage;fi
 

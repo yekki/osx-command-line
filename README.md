@@ -16,15 +16,14 @@ clone https://github.com/yekki/osx-command-line.git ~/.yekki
 
 ```
 
-### Modify ~/.zshrc
-
-Change ZSH_CUSTOM to following value:
+### Initialization
 
 ```
-ZSH_CUSTOM=~/.yekki/zsh
+cd ~/.yekki
+./init-yekki
 ```
 
-### Add your private profile
+### Add your private profile(Optional)
 
 Add file .yekkirc at ~ with following content:
 
