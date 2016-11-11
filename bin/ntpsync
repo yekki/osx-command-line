@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+sudo ntpdate -u adcq7-rtr-9.us.oracle.com

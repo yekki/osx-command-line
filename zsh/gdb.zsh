@@ -1,0 +1,1 @@
+echo "set startup-with-shell off" >> ~/.gdbinit

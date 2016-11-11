@@ -21,9 +21,7 @@ alias -s gz='tar -xzvf'
 alias -s tgz='tar -xzvf'
 alias -s zip='unzip'
 alias -s bz2='tar -xjvf'
-alias rm="rmtrash"
+#alias rm="rmtrash"
 alias zshconfig="subl ~/.zshrc"
 
 export PATH=$PATH:/usr/local/sbin:/Users/gniu/Dropbox/.yekki/bin:
-
-
