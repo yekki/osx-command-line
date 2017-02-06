@@ -3,8 +3,8 @@
 #
 # brainstormr=/Users/robbyrussell/Projects/development/planetargon/brainstormr
 #
-
-alias vi='vim -u ~/Dropbox/.yekki/vim/vimrc'
+local _vim_config=~"/Library/Mobile Documents/com~apple~CloudDocs/Settings.localized/.yekki/vim/vimrc"
+alias vi='vim -u "$_vim_config"'
 alias cls='clear'
 alias ll='ls -al'
 alias grep='grep --color=auto'
@@ -24,4 +24,4 @@ alias -s bz2='tar -xjvf'
 #alias rm="rmtrash"
 alias zshconfig="subl ~/.zshrc"
 
-export PATH=$PATH:/usr/local/sbin:/Users/gniu/Dropbox/.yekki/bin:
+export PATH=$PATH:/usr/local/sbin:~"/Library/Mobile Documents/com~apple~CloudDocs/Settings.localized/.yekki/bin":
