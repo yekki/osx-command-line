@@ -3,8 +3,7 @@
 #
 # brainstormr=/Users/robbyrussell/Projects/development/planetargon/brainstormr
 #
-local _vim_config=~"/Library/Mobile Documents/com~apple~CloudDocs/Settings.localized/.yekki/vim/vimrc"
-alias vi='vim -u "$_vim_config"'
+alias vi='vim -u "$SETTINGS_DIR/.yekki/vim/vimrc"'
 alias cls='clear'
 alias ll='ls -al'
 alias grep='grep --color=auto'
@@ -22,6 +21,6 @@ alias -s tgz='tar -xzvf'
 alias -s zip='unzip'
 alias -s bz2='tar -xjvf'
 #alias rm="rmtrash"
-alias zshconfig="subl ~/.zshrc"
+alias zshconfig="subl $SETTINGS_DIR/.zshrc"
 
-export PATH=$PATH:/usr/local/sbin:~"/Library/Mobile Documents/com~apple~CloudDocs/Settings.localized/.yekki/bin":
+export PATH=$PATH:/usr/local/sbin:"${SETTINGS_DIR}/.yekki/bin":
