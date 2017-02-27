@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-
-git stash
-upgrade_oh_my_zsh
