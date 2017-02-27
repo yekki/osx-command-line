@@ -3,8 +3,8 @@
 # Sync Homebrew installations between Macs via iCloud
 #
 
-BREW="/usr/local/bin/brew"
-BREW_BAK="/Users/gniu/Library/Mobile Documents/com~apple~CloudDocs/Settings.localized/Homebrew"
+BREW=/usr/local/bin/brew
+BREW_BAK=~/Library/Mobile\ Documents/com~apple~CloudDocs/Settings.localized/Homebrew
 # first get local settings
 echo "Reading local settings ..."
 rm -f /tmp/brew-sync.*
