@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ~"/Library/Mobile Documents/com~apple~CloudDocs/Settings.localized/.yekkirc"
+source "${HOME}/Library/Mobile Documents/com~apple~CloudDocs/Settings.localized/.yekkirc"
 
 export ALL_PROXY=$VPN_PROXY
 export HTTP_PROXY=$ALL_PROXY

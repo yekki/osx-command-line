@@ -22,4 +22,4 @@ alias -s zip='unzip'
 alias -s bz2='tar -xjvf'
 #alias rm="rmtrash"
 alias zshconfig="subl $SETTINGS_DIR/.zshrc"
-export PATH=/usr/local/sbin:"${SETTINGS_DIR}/.yekki/bin":"${PATH}"
+export PATH=/usr/local/sbin:$SETTINGS_DIR/.yekki/bin:$PATH
