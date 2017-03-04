@@ -3,7 +3,6 @@
 #
 # brainstormr=/Users/robbyrussell/Projects/development/planetargon/brainstormr
 #
-
 alias vi='vim -u "$SETTINGS_DIR/.yekki/vim/vimrc"'
 alias cls='clear'
 alias ll='ls -al'
@@ -21,5 +20,6 @@ alias -s tgz='tar -xzvf'
 alias -s zip='unzip'
 alias -s bz2='tar -xjvf'
 #alias rm="rmtrash"
-alias zshconfig="subl $SETTINGS_DIR/.zshrc"
-export PATH=/usr/local/sbin:$SETTINGS_DIR/.yekki/bin:$PATH
+alias zshconfig="subl ~/.zshrc"
+
+export PATH=/usr/local/sbin:"$SETTINGS_DIR/.yekki/bin":$PATH
