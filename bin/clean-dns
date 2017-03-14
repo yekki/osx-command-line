@@ -1,7 +1,8 @@
 #!/bin/bash
 
+# 10.11 or newer
+
 sudo killall -HUP mDNSResponder
-sudo killall mDNSResponderHelper
 sudo dscacheutil -flushcache
 
 echo 'MacOS DNS cache has been cleared'
