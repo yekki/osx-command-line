@@ -1,0 +1,15 @@
+#!/bin/bash
+
+_PLIST=/System/Library/CoreServices/SystemVersion.plist
+_OLD_VER=10.90
+_CURRENT_VER=10.12.4
+sudo /usr/libexec/PlistBuddy -c "Set ProductUserVisibleVersion ${_OLD_VER}" ${_PLIST}
+sudo /usr/libexec/PlistBuddy -c "Set ProductVersion ${_OLD_VER}" ${_PLIST}
+
+open -a MATLAB_R2014a.app
+read -p "Press any key when MATLAB started..."
+sudo /usr/libexec/PlistBuddy -c "Set ProductUserVisibleVersion ${_CURRENT_VER}" ${_PLIST}
+sudo /usr/libexec/PlistBuddy -c "Set ProductVersion ${_CURRENT_VER}" ${_PLIST}
+
+
+
