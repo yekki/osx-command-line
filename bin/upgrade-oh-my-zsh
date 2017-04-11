@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-
-git stash
-~/Library/Mobile\ Documents/com~apple~CloudDocs/Settings.localized/.oh-my-zsh/tools/check_for_upgrade.sh
