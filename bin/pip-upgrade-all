@@ -1,1 +1,26 @@
-pip list --outdated | cut -d' ' -f1 | xargs pip install --upgrade
+#!/bin/bash
+
+while getopts ":l" opt; do
+	case $opt in
+	l) pip list --outdated;exit;;
+	esac
+done
+
+
+arguments="$*"
+
+if [ -f ~/.pip/pip.conf ]
+then
+	pkgs="pip list --outdated | tail -n +3 | cut -d' ' -f1"
+else
+	pkgs="pip list --outdated | cut -d' ' -f1"
+fi	
+
+upgrade="xargs pip install --upgrade"
+
+if (( $# >= 1 ))
+then
+	eval $pkgs | grep -Ev "(${arguments/ /|})" | eval $upgrade
+else
+	eval $pkgs | eval $upgrade
+fi
