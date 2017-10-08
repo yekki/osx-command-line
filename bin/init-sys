@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+
+if [ -d ~/.oh-my-zsh ] ; then
+	rm -rf ~/.zshrc
+	ln -s ~/Library/Mobile\ Documents/com~apple~CloudDocs/Settings.localized/Mackup/.zshrc ~/.zshrc
+	echo 'oh-my-zsh has been installed and clean up.'
+else
+	echo 'Please install oh my zsh firstly!'
+	exit -1
+fi
+
+if [ -f /usr/local/bin/brew ] ; then
+	echo 'brew has been installed.'
+else
+	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+	echo 'brew is installed successfully.'
+fi
+
+if brew ls --versions mackup > /dev/null; then
+	echo 'mackup has been installed'
+else
+	brew install mackup
+	echo 'mackup is installed successfully.'
+fi
+
+
+if [ -f ~/.mackup.cfg ]; then
+	rm -rf ~/.mackup.cfg
+elif [ -h ~/.mackup.cfg ]; then
+	echo 'oh-my-zsh has been installed.'
+else
+	ln -s ~/Library/Mobile\ Documents/com~apple~CloudDocs/Settings.localized/.mackup.cfg ~/.mackup.cfg
+	echo '.mackup.cfg is linked to icloud version.'
+fi
+
+if brew ls --versions rcmdnk/file/brew-file > /dev/null; then
+	echo 'brew-file has been installed'
+else
+	brew tap rcmdnk/file
+	brew install rcmdnk/file/brew-file
+	echo 'brew-file is installed successfully.'
+fi
+
+mackup restore
+
+export HOMEBREW_BREWFILE=~/Library/Mobile\ Documents/com~apple~CloudDocs/Settings.localized/.Brewfile
+#brew file install
+
+echo 'Finished.'
+

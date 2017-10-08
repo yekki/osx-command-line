@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+rm -rf ~/Library/Caches/Google
+rm -rf ~/Library/Caches/com.apple.Safari
+rm -rf ~/Library/Developer/Xcode/DerivedData
+
+ln -s /Volumes/Ramdisk/Library/Caches/Google ~/Library/Caches/Google
+ln -s /Volumes/Ramdisk/Library/Caches/com.apple.Safari~/Library/Caches/com.apple.Safari
+ln -s /Volumes/Ramdisk/Library/Developer/Xcode/ ~/Library/Developer/Xcode/DerivedData
