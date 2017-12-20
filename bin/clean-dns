@@ -2,7 +2,5 @@
 
 # 10.11 or newer
 
-sudo killall -HUP mDNSResponder
-sudo dscacheutil -flushcache
+sudo killall -HUP mDNSResponder; sleep 2; echo macOS DNS Cache Reset | say
 
-echo 'MacOS DNS cache has been cleared'
