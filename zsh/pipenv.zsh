@@ -1,4 +1,6 @@
 export PATH=~/.local/bin:$PATH
 alias prp="pipenv run python"
-eval "$(pipenv --completion)"
+
+#doesn't support oh-my-zsh
+#eval "$(pipenv --completion)"
 
