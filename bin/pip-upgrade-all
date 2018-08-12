@@ -17,6 +17,7 @@ else
 fi	
 
 upgrade="xargs pip install --upgrade"
+#upgrade="xargs conda install"
 
 if (( $# >= 1 ))
 then
