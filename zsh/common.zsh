@@ -7,6 +7,7 @@ alias vi='vim -u "$SETTINGS_DIR/.yekki/vim/vimrc"'
 alias cls='clear'
 alias ll='ls -al'
 alias grep='grep --color=auto'
+alias k='kubectl'
 alias -s txt=subl
 alias -s plist=subl
 alias -s py=subl
